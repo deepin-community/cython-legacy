@@ -1,0 +1,14 @@
+Tests: import3
+Depends: cython3-legacy, python3-all
+Restrictions: superficial
+
+Tests: testsuite
+Depends: cython3-legacy,
+         g++,
+         gcc,
+         gdb,
+         make,
+         python3-all-dev,
+         python3-numpy,
+         python3-setuptools
+Restrictions: allow-stderr

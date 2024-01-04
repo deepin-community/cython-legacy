@@ -1,0 +1,17 @@
+#!/bin/sh
+set -efu
+
+pys="$(py3versions -r 2>/dev/null)"
+cores=$(nproc)
+
+cp -a cython.py tests Demos runtests.py "$AUTOPKGTEST_TMP"
+cd "$AUTOPKGTEST_TMP"
+
+for py in $pys; do
+	echo "=== $py ==="
+	$py runtests.py --shard_count=$cores \
+	  --no-refnanny -v -v \
+	  --exclude='(parallel|Debugger|annotate_html|numpy_test)' \
+	  --work-dir="$AUTOPKGTEST_TMP/test-work-dir"
+	rm -rf "$AUTOPKGTEST_TMP/test-work-dir"
+done
