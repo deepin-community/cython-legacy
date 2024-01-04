@@ -1,0 +1,4 @@
+#!/usr/bin/dh-exec
+usr/bin/cygdb => usr/bin/cygdb3
+usr/bin/cython => usr/bin/cython3
+usr/lib/python3*/*-packages/*

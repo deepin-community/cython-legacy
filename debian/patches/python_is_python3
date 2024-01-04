@@ -1,0 +1,61 @@
+--- a/Makefile
++++ b/Makefile
+@@ -1,5 +1,5 @@
+ PACKAGENAME=Cython
+-PYTHON?=python
++PYTHON?=python3
+ TESTOPTS?=
+ REPO = git://github.com/cython/cython.git
+ VERSION?=$(shell sed -ne 's|^__version__\s*=\s*"\([^"]*\)".*|\1|p' Cython/Shadow.py)
+--- a/Demos/Makefile
++++ b/Demos/Makefile
+@@ -1,11 +1,11 @@
+ all:
+-	python setup.py build_ext --inplace
++	python3 setup.py build_ext --inplace
+ 
+ test:	all
+-	python run_primes.py 20
+-	python run_numeric_demo.py
+-	python run_spam.py
+-	python integrate_timing.py
++	python3 run_primes.py 20
++	python3 run_numeric_demo.py
++	python3 run_spam.py
++	python3 integrate_timing.py
+ 	cd callback; $(MAKE) test
+ 	cd embed; $(MAKE) test
+ 
+--- a/Demos/callback/Makefile
++++ b/Demos/callback/Makefile
+@@ -1,8 +1,8 @@
+ all:
+-	python Setup.py build_ext --inplace
++	python3 Setup.py build_ext --inplace
+ 
+ test:	all
+-	python run_cheese.py
++	python3 run_cheese.py
+ 
+ clean:
+ 	@echo Cleaning Demos/callback
+--- a/Demos/embed/Makefile
++++ b/Demos/embed/Makefile
+@@ -1,5 +1,5 @@
+ # Makefile for creating our standalone Cython program
+-PYTHON := python
++PYTHON := python3
+ PYVERSION := $(shell $(PYTHON) -c "import sys; print(sys.version[:3])")
+ PYPREFIX := $(shell $(PYTHON) -c "import sys; print(sys.prefix)")
+ 
+--- a/Demos/freeze/Makefile
++++ b/Demos/freeze/Makefile
+@@ -1,7 +1,7 @@
+ CC = gcc
+ CYTHON = ../../bin/cython
+ CYTHON_FREEZE = ../../bin/cython_freeze
+-PYTHON = python
++PYTHON = python3
+ RST2HTML = rst2html
+ 
+ PY_LDFLAGS = $(shell $(PYTHON) -c 'from distutils.sysconfig import get_config_var as g; import sys; sys.stdout.write(" ".join([g("LINKFORSHARED"), "-L"+g("LIBPL")]) + "\n")')

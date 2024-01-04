@@ -1,0 +1,11 @@
+--- a/pyximport/pyximport.py
++++ b/pyximport/pyximport.py
+@@ -48,7 +48,7 @@
+ """
+ 
+ import glob
+-import imp
++import zombie_imp as imp
+ import os
+ import sys
+ from zipimport import zipimporter, ZipImportError

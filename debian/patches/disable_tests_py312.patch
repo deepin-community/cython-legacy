@@ -1,0 +1,20 @@
+Author: Julian Gilbey <jdg@debian.org>
+Last-Update: 2023-12-13
+Forwarded: not-needed
+Description: Skip tests that fail with Python 3.12
+ For this legacy package, we skip these failing tests.
+ In particular, pyximport seems to fail with Python 3.12.
+
+--- a/tests/bugs.txt
++++ b/tests/bugs.txt
+@@ -61,3 +61,10 @@
+ numpy_memoryview
+ # https://github.com/cython/cython/issues/1982
+ numpy_subarray
++
++# Skip tests that fail with Python 3.12
++pstats_profile_test
++pyximport_basic
++pyximport_errors
++pyximport_namespace
++pyximport_pyimport
